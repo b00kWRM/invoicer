@@ -207,7 +207,7 @@ func (iv *invoicer) deleteInvoice(w http.ResponseWriter, r *http.Request) {
 }
 
 func (iv *invoicer) getIndex(w http.ResponseWriter, r *http.Request) {
-	w.Header().Add("Content-Security-Policy", "default-src 'self'; child-src 'self;")
+	#w.Header().Add("Content-Security-Policy", "default-src 'self'; child-src 'self;")
 	w.Header().Add("X-Frame-Options", "SAMEORIGIN")
 	w.Header().Add("X-Content-Type-Options", "nosniff")
 	w.Header().Add("Strict-Transport-Security", "max-age=31536000; includeSubDomains; preload")
