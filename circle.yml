@@ -42,7 +42,7 @@ test:
     # Run zap against the invoicer
     - CID=$(docker run -d -p 8080:8080 ${DOCKER_REPO}/${CIRCLE_PROJECT_REPONAME})
     - ipaddress=$(docker inspect --format='{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' $CID)
-    - docker run -t owasp/zap2docker-weekly zap-baseline.py -u https://raw.githubusercontent.com/Securing-DevOps/invoicer/master/zap-baseline.conf -t $ipaddress
+    - docker run -t owasp/zap2docker-weekly zap-baseline.py -u https://raw.githubusercontent.com/Securing-DevOps/invoicer/master/zap-baseline.conf -t $ipaddress:
         timeout: 1800
 
     # Run GOVEND against the invoicer to check if outdated dependencies are present
