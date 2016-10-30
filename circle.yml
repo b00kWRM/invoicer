@@ -41,6 +41,8 @@ test:
 
     # Run zap against the invoicer
     - docker run ${DOCKER_REPO}/${CIRCLE_PROJECT_REPONAME} &
+    - wget http://172.17.0.2:8080/
+    - cat index.html
     - docker run -t owasp/zap2docker-weekly zap-baseline.py -u https://raw.githubusercontent.com/Securing-DevOps/invoicer/master/zap-baseline.conf -t http://172.17.0.2:8080/:
         timeout: 1800
 
